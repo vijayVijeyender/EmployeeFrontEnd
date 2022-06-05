@@ -1,0 +1,18 @@
+{
+  "employeeDetails": [
+    {
+      "firstName": "Jack",
+      "secondName": "thanu",
+      "department": "Testing",
+      "salary": "10000",
+      "id": 2
+    },
+    {
+      "firstName": "Thanu",
+      "secondName": "Raja",
+      "department": "Testing",
+      "salary": "10000",
+      "id": 3
+    }
+  ]
+}
