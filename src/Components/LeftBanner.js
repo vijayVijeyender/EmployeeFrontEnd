@@ -1,15 +1,37 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
+
 
 
 function LeftBanner(props) {
-  const [firstName, setFirstName] = useState()
+  const [firstName, setFirstName] = useState();
   const [lastName, setLastName] = useState()
   const [department, setDepartment] = useState()
   const [salary, setSalary] = useState()
   const [sort,setSort]=useState("none")
   const [filter,setFilter]=useState("none")
 
+  useEffect(() => {
+    console.log(props.updateobj);
+    if (props.updateobj.firstName) {
+      setFirstName(props.updateobj.firstName)
+    }
+    if (props.updateobj.lastName) {
+      setLastName(props.updateobj.lastName)
+    }
+    if (props.updateobj.department) {
+      setDepartment(props.updateobj.department)
+    }
+    if (props.updateobj.salary) {
+      setSalary(props.updateobj.salary)
+    }
+  }, [props.updateobj]);
 
+  const handleclear =()=>{
+       setFirstName("")
+          setLastName("")
+          setDepartment("Select Department")
+          setSalary("")
+  }
   return (
     <div className="LeftBanner">
    
@@ -58,6 +80,7 @@ function LeftBanner(props) {
             salary: salary
           }
           props.handleAdd(newobj)
+          handleclear()
         }}>Update Employee</button>:<button className="AddButton" onClick={() => {
           const newobj = {
             firstName: firstName,
@@ -66,6 +89,7 @@ function LeftBanner(props) {
             salary: salary
           }
           props.handleAdd(newobj)
+          handleclear()
         }}>Add Employee</button>}
       </div>
 
